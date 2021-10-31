@@ -1,5 +1,6 @@
-import hero from "../../img/ilustracion.svg"
-import styles from "./Hero.module.css"
+import hero from "../../img/illustration-hero.svg";
+import styles from "./Hero.module.css";
+import arr from "../../img/icon-arrow.svg"
 
 export const Hero = () => {
 
@@ -17,6 +18,9 @@ export const Hero = () => {
                         <h3>Desarrollador Full-Stack</h3>
                     </div>
                 </div>
+            </div>
+            <div className={styles.containerArrow}>
+                <button><img src={arr} alt="" /></button>
             </div>
         </>
 
