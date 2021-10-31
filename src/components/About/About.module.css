@@ -24,10 +24,26 @@
 }
 
 .img img {
-    border-radius: 50%;
+    border-radius: 2rem;
 }
 
 .txt {
     flex: 0 0 calc(60% - 2rem);
     font-size: 2.2rem;
+}
+
+.btnContacto {
+    padding: 1.5rem 2rem;
+    background-color: #049dd9;
+    border: none;
+    cursor: pointer;
+    color: #FFF;
+    font-weight: 700;
+    font-size: 1.8rem;
+    transition: all .3s ease-in-out;
+    border-radius: 1rem;
+}
+
+.btnContacto:hover {
+    background-color: #353535;
 }
