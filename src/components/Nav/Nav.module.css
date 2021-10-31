@@ -1,0 +1,27 @@
+.container {
+    margin-top: 3rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.container img {
+    width: 25rem;
+}
+
+.container a {
+    margin: 0 2rem;
+}
+
+.container .enlaces a {
+    font-size: 1.8rem;
+    font-weight: 700;
+    text-decoration: none;
+    color: #353535;
+}
+
+.container .enlaces .contacto {
+    background-color: #049dd9;
+    padding: 1rem 2rem;
+    color: #FFF;
+}

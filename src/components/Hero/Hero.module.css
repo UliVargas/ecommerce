@@ -1,0 +1,35 @@
+.container {
+    display: flex;
+    justify-content: center;
+    height: 60rem;
+    margin-top: 5rem;
+}
+
+.heroContainer {
+    margin-top: 10rem;
+    display: flex;
+    justify-content: space-evenly;
+    width: 100%;
+}
+
+.heroImg img {
+    max-width: 100%;
+}
+ 
+.heroImg {
+    flex: 0 0 50%
+}
+
+
+.heroTxt {
+    margin-top: 5rem;
+    margin-left: 5rem;
+    flex: 0 0 calc(50% - 4rem);
+}
+
+.heroTxt h1,
+.heroTxt h2, 
+.heroTxt h3 {
+    margin: 0;
+    line-height: 1.6;
+}

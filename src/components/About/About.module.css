@@ -1,0 +1,33 @@
+.container {
+    background-image: linear-gradient(120deg, #fdfbfb 0%, #ebedee 100%);
+    box-shadow: 0 0 3px 0 #ccc;
+    padding: 3rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.container h2 {
+    margin: 0;
+    text-align: center;
+}
+
+.containerAbout {
+    display: flex;
+    justify-content: space-between;
+}
+
+.img {
+    flex: 0 0 40%;
+    max-width: 40rem;
+}
+
+.img img {
+    border-radius: 50%;
+}
+
+.txt {
+    flex: 0 0 calc(60% - 2rem);
+    font-size: 2.2rem;
+}
