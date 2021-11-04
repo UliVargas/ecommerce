@@ -1,7 +1,7 @@
 .container {
-    background-image: linear-gradient(120deg, #fdfbfb 0%, #ebedee 100%);
+    background-color: #e8eaf6;
     box-shadow: 0 0 3px 0 #ccc;
-    padding: 3rem;
+    padding: 5rem;
     display: flex;
     flex-direction: column;
     align-items: center;

@@ -33,3 +33,9 @@ h3 {
   margin: 0 auto;
   width: 90%;
 }
+
+.containerForm {
+  max-width: 80rem;
+  margin: 0 auto;
+  width: 90%;
+}

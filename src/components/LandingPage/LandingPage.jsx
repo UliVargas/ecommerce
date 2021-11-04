@@ -1,5 +1,6 @@
 import { About } from "../About/About"
 import { Skills } from "../CardsSkills/CardSkills"
+import { Contact } from "../Contact/Contact"
 import { Hero } from "../Hero/Hero"
 import { Nav } from "../Nav/Nav"
 
@@ -12,6 +13,7 @@ export const LandigPage = () => {
             <Hero />
             <About />
             <Skills />
+            <Contact />
         </>
     )
 }
