@@ -1,0 +1,35 @@
+.container {
+    margin-top: 3rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.container img {
+    width: 25rem;
+}
+
+.container a {
+    margin: 0 2rem;
+}
+
+.container .enlaces a {
+    font-size: 2rem;
+    font-weight: 700;
+    text-decoration: none;
+    color: var(--color-secundario);
+}
+
+.container .enlaces a:hover {
+    color: var(--color-primario);
+}
+
+.container .enlaces a:last-of-type {
+    color: var(--color-blanco);
+}
+
+.container .enlaces .contacto {
+    background-color: var(--color-primario);
+    padding: 1rem 2rem;
+    color: var(--color-blanco);
+}

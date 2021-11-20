@@ -1,0 +1,74 @@
+/* Variables */
+
+:root {
+  --color-primario: #049DD9;
+  --color-secundario: #353535;
+  --color-blanco: #FFFFFF;
+  --bg-color: #E8EAF6;
+  --box-shadow: 0 0 3px 0 #CCCCCC;
+  --border-radius: 1rem;
+}
+
+
+*::after, *::before, * {
+  box-sizing: inherit;
+}
+
+html {
+  font-size: 62.5%;
+  box-sizing: border-box;
+}
+
+body {
+  font-size: 1.6rem;
+  margin: 0 auto;
+  color: var(--color-secundario);
+}
+
+img {
+  max-width: 100%;
+}
+
+h1 {
+  font-size: 5rem;
+}
+
+h2 {
+  font-size: 3.6rem;
+}
+
+h3 {
+  font-size: 3.2rem;
+}
+
+a {
+  color: #FFF;
+}
+
+.container {
+  max-width: 120rem;
+  margin: 0 auto;
+  width: 90%;
+}
+
+.containerForm {
+  max-width: 80rem;
+  margin: 0 auto;
+  width: 90%;
+}
+
+.btn {
+  padding: 1.5rem 2rem;
+  background-color: #049dd9;
+  border: none;
+  cursor: pointer;
+  color: #FFF;
+  font-weight: 700;
+  font-size: 1.8rem;
+  transition: all .3s ease-in-out;
+  border-radius: 1rem;
+}
+
+.btn:hover {
+  background-color: #353535;
+}
