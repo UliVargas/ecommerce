@@ -16,9 +16,6 @@ export const FormProyect = () => {
         handleImages
     } = useForm(initialForm);
 
-    
-
-
     return (
         <>
             <form action="" onSubmit={handleSubmit} className={`container ${styles.containerForm}`}>
