@@ -1,32 +1,29 @@
 import { useEffect } from "react/cjs/react.development";
 import { CardSkill } from "./CardSkill";
-import styles from "./CardSkills.module.css";
 import { useState } from "react";
-import axios from "axios";
-
-
+import { db } from "../../Firebase/db"
+import { getDocs, collection } from "firebase/firestore"
 export const Skills = () => {
-    
+
     //Estado local
     const [logos, setLogos] = useState([])
-    
-    //Lamado a la api
+
+    //Petición base de datos Firebase Firestore
     const getLogos = async() => {
-        const resolve = await axios.get("http://localhost:3001/logos")
-        .then(data => data.data);
-        setLogos(resolve)
-    };
+        const peticion = await getDocs(collection(db, "logos"))
+        const { docs } = peticion;
+        const logos = docs.map(logo => logo.data())
+        setLogos(logos)
+    }
 
-
-    //Ejecuta la funcion de llamado
     useEffect(() => {
-        getLogos();
+        getLogos()
     }, [])
-
+    
     return (
-        <div className={`${styles.container}`}>
-            <h2>Habilidades</h2>
-            <div className={`container ${styles.containerCards}`}>
+        <div className="pt-10 text-center h-screen mx-auto shadow-md bg-gray-100">
+            <h2 className="text-3xl font-bold pt-6 text-gray-800">Tecnologías</h2>
+            <div className="container mt-6 w-3/4 lg:grid lg:justify-items-center items-center lg:h-5/6 grid grid-cols-2 sm:grid sm:grid-cols-3 lg:grid-cols-5 gap-4 mx-auto">
                 {
                     logos.map(logo => (
                         <CardSkill
@@ -37,7 +34,7 @@ export const Skills = () => {
                     ))
                 }
             </div>
-            
+
         </div>
     )
 }

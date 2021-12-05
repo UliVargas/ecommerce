@@ -7,14 +7,16 @@ import { Proyects } from './pages/Proyect/Proyects';
 
 function App() {
   return (
-    <Switch>
-      <Route path="/add-proyect">
-        <Proyects />
-      </Route>
-      <Route path="/">
-        <LandigPage />
-      </Route>
-    </Switch>
+    <div>
+      <Switch>
+        <Route path="/add-proyect">
+          <Proyects />
+        </Route>
+        <Route path="/">
+          <LandigPage />
+        </Route>
+      </Switch>
+    </div>
   );
 }
 

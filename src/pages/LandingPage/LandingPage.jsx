@@ -9,13 +9,12 @@ export const LandigPage = () => {
 
 
     return (
-        <>
-            <Nav />
+        <div className="h-screen">
             <Hero />
             <About />
             <Skills />
-            <Proyects />
+            {/* <Proyects /> */}
             <Contact />
-        </>
+        </div>
     )
 }

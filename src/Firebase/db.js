@@ -3,13 +3,16 @@ import 'firebase/compat/storage';
 import 'firebase/compat/firestore';
 
 const firebaseConfig = {
-  apiKey: "AIzaSyAh9LRh-zvA53Q-4fzkB3yxammIUO3LP84",
-  authDomain: "portfolio-e5bfd.firebaseapp.com",
-  databaseURL: "https://portfolio-e5bfd-default-rtdb.firebaseio.com",
-  projectId: "portfolio-e5bfd",
-  storageBucket: "portfolio-e5bfd.appspot.com",
-  messagingSenderId: "329212474841",
-  appId: "1:329212474841:web:afd9ea8929d0eda2c015c8"
+  apiKey: process.env.REACT_APP_FIREBASE_API_KEY,
+  authDomain: process.env.REACT_APP_FIREBASE_AUTH_DOMAIN,
+  databaseURL: process.env.REACT_APP_FIREBASE_DATABASE_URL,
+  projectId: process.env.REACT_APP_FIREBASE_PROJECT_ID,
+  storageBucket: process.env.REACT_APP_FIREBASE_STORAGE_BUCKET,
+  messagingSenderId: process.env.REACT_APP_FIREBASE_MESSAGING_SENDER_ID,
+  appId: process.env.REACT_APP_FIREBASE_APP_ID
 };
 
-export const app = firebase.initializeApp(firebaseConfig);
+const app = firebase.initializeApp(firebaseConfig);
+
+export const db = app.firestore(app);
+export const storage = app.storage();
