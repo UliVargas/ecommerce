@@ -1,7 +1,7 @@
 import { describe, jest, it, expect } from '@jest/globals'
 import { CreateService, FindAllService, FindOneService } from '../../../../../domain/services/user/index.service'
-import { dependencies } from '../../../dependencies'
-import { user } from '../../../mock/user'
+import { dependencies } from '../../../../fixtures/dependencies'
+import { user } from '../../../../fixtures/mock/user'
 
 describe('UserService', () => {
   describe('Create', () => {

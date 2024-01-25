@@ -1,5 +1,5 @@
 import { describe, it, jest, expect, beforeEach } from '@jest/globals'
-import { user } from '../../mock/user'
+import { user } from '../../../fixtures/mock/user'
 import { User } from '../../../../infrastructure/orm/sequelize/models/user.model'
 import { UserModel } from '../../../../infrastructure/orm/sequelize/models/index.model'
 import Dependencies, { Dependencies as IDependencies } from '../../../../infrastructure/config/dependencies'
