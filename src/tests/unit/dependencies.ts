@@ -1,0 +1,25 @@
+import { JWTPayload } from 'jose'
+import { Dependencies } from '../../infrastructure/config/dependencies'
+import { UserEntity } from '../../domain/entities/user.entity'
+
+export const dependencies: Dependencies = {
+  userRepository: {
+    create: function (payload: any): Promise<UserEntity> {
+      throw new Error('Function not implemented.')
+    },
+    findAll: function (): Promise<UserEntity[]> {
+      throw new Error('Function not implemented.')
+    },
+    findOne: function (payload: any): Promise<UserEntity> {
+      throw new Error('Function not implemented.')
+    }
+  },
+  tokenRepository: {
+    create: function (payload: any): Promise<string> {
+      throw new Error('Function not implemented.')
+    },
+    decode: function (token: string): JWTPayload {
+      throw new Error('Function not implemented.')
+    }
+  }
+}
