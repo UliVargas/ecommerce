@@ -1,14 +1,29 @@
+import ErrorConstructor from '../../../adapters/middlewares/errors/error.constructor'
 import { Dependencies } from '../../../infrastructure/config/dependencies'
 
 interface LoginArgs {
-  id: string,
-  name: string
+  email: string,
+  password: string
 }
 
 type LoginService = (payload: LoginArgs) => Promise<{ token: string }>
 
 export default (dependencies: Dependencies): LoginService => async (payload) => {
+  const user = await dependencies.userRepository.findOne(payload.email)
+
+  if (!user) {
+    throw new ErrorConstructor({
+      errorCode: 'USER_NOT_FOUND'
+    })
+  }
+
+  if (!await dependencies.encryptorRepository.compare(payload.password, user.password)) {
+    throw new ErrorConstructor({
+      errorCode: 'INVALID_CREDENTIALS'
+    })
+  }
+
   return {
-    token: await dependencies.tokenRepository.create(payload)
+    token: await dependencies.tokenRepository.create({ id: user.id })
   }
 }

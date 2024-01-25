@@ -7,8 +7,8 @@ export default (dependencies: Dependencies) => {
   const loginService = LoginService(dependencies)
   const createService = CreateService(dependencies)
 
-  const create = (req: Request, res: Response) => {
-    const user = createService(req.body)
+  const create = async (req: Request, res: Response) => {
+    const user = await createService(req.body)
     res.status(201).json(user)
   }
 
@@ -25,7 +25,8 @@ export default (dependencies: Dependencies) => {
   }
 
   const login = async (req: Request, res: Response) => {
-    const token = await loginService({ id: 'user123', name: 'Ulises' })
+    const { email, password } = req.body
+    const token = await loginService({ email, password })
     res.status(200).json(token)
   }
 

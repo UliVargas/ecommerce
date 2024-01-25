@@ -1,7 +1,7 @@
 import Router from 'express-promise-router'
 import UserControllers from '../controllers/user.controller'
 import { Dependencies } from '../../infrastructure/config/dependencies'
-import Validations from '../validations/functions/user'
+import Validations from '../validations/zod/functions/user'
 // import Auth from '../middlewares/auth'
 
 export default (dependencies: Dependencies) => {
@@ -11,7 +11,7 @@ export default (dependencies: Dependencies) => {
 
   router.get('/', userControllers.findAll)
   router.post('/', Validations.CreateUser, userControllers.create)
-  router.post('/login', userControllers.login)
+  router.post('/login', Validations.Login, userControllers.login)
 
   return router
 }

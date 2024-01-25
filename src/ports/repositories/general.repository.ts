@@ -5,5 +5,5 @@ export type RepositoryPayload<T> =
 export interface Repository<T> {
   create(payload: RepositoryPayload<T>['typeData']): Promise<T>
   findAll(): Promise<T[]>
-  findOne(payload: RepositoryPayload<T>['typeData']): Promise<T>
+  findOne(payload: RepositoryPayload<T>['typeData']): Promise<T | null>
 }

@@ -11,8 +11,10 @@ class UserSequelizeRepository implements UserRepository {
     throw new Error('Method not implemented.')
   }
 
-  findOne (payload: string): Promise<UserEntity> {
-    throw new Error('Method not implemented.')
+  async findOne (payload: string): Promise<UserEntity | null> {
+    const user = await UserModel.findOne({ where: { email: payload } })
+    if (!user) return null
+    return user?.toJSON()
   }
 }
 

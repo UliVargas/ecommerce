@@ -10,6 +10,10 @@ interface CreatePayload {
 
 type CreateUser = (payload: CreatePayload) => Promise<UserEntity>
 
-export default (dependencies: Dependencies): CreateUser => (payload) => {
-  return dependencies.userRepository.create(payload)
+export default (dependencies: Dependencies): CreateUser => async (payload) => {
+  const hash = await dependencies.encryptorRepository.hash(payload.password)
+  return dependencies.userRepository.create({
+    ...payload,
+    password: hash
+  })
 }

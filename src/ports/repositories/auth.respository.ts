@@ -1,6 +1,6 @@
 import { JWTPayload } from 'jose'
 
-export interface AuthToken {
+export interface AuthRepository {
   create(payload: any): Promise<string>
   decode(token: string): JWTPayload
 }

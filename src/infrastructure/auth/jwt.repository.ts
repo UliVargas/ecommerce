@@ -1,11 +1,10 @@
 import { JWTPayload } from 'jose'
-import { AuthToken } from '../../ports/repositories/jwt.respository'
+import { AuthRepository } from '../../ports/repositories/auth.respository'
 import * as jose from 'jose'
+import { env } from '../config/env'
 
-const secret = new TextEncoder().encode(
-  'cc7e0d44fd473002f1c42167459001140ec6389b7353f8088f4d9a95f2f596f2'
-)
-class JWTRepository implements AuthToken {
+const secret = new TextEncoder().encode(env.SECRET_KEY)
+class JWTRepository implements AuthRepository {
   async create (payload: any): Promise<string> {
     return await new jose.SignJWT(payload)
       .setProtectedHeader({ alg: 'HS256' })
