@@ -1,6 +1,7 @@
 import { z } from 'zod'
 
 const props = {
+  id: z.string().uuid(),
   name: z.string(),
   lastname: z.string(),
   email: z.string().email(),
@@ -17,4 +18,8 @@ export const createUserSchema = z.object({
 export const loginSchema = z.object({
   email: props.email,
   password: props.password
+})
+
+export const findOneSchema = z.object({
+  term: z.union([props.email, props.id])
 })

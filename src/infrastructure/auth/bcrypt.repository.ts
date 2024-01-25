@@ -1,4 +1,4 @@
-import { EncryptorRepository } from '../../ports/repositories/encryptor.repository'
+import { EncryptorRepository } from '../../ports/repositories/out/encryptor.repository'
 import * as bcrypt from 'bcrypt'
 class BcryptRepository implements EncryptorRepository {
   hash (password: string): Promise<string> {

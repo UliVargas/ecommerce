@@ -10,3 +10,7 @@ export default (dependencies: Dependencies) => {
 
   return router
 }
+
+// http://localhost:4000/api/users
+// http://localhost:4000/api/cart
+// http://localhost:4000/api/products

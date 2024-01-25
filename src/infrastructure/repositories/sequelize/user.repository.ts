@@ -1,20 +1,37 @@
+import { WhereOptions } from 'sequelize'
 import { UserEntity } from '../../../domain/entities/user.entity'
-import { UserRepository } from '../../../ports/repositories/user.repository'
+import { UserRepository } from '../../../ports/repositories/out/user.repository'
 import { UserModel } from '../../orm/sequelize/models/index.model'
+import { emailRegexValidation } from '../../utilities/constants'
 
 class UserSequelizeRepository implements UserRepository {
-  create (payload: UserEntity): Promise<UserEntity> {
-    return UserModel.create(payload)
+  async create (payload: UserEntity): Promise<UserEntity> {
+    return await UserModel.create(payload)
   }
 
   findAll (): Promise<UserEntity[]> {
-    throw new Error('Method not implemented.')
+    return UserModel.findAll()
   }
 
   async findOne (payload: string): Promise<UserEntity | null> {
-    const user = await UserModel.findOne({ where: { email: payload } })
-    if (!user) return null
-    return user?.toJSON()
+    let where: WhereOptions = {}
+    const isEmail = emailRegexValidation.test(payload)
+
+    if (isEmail) {
+      where = {
+        email: payload
+      }
+    } else {
+      where = {
+        id: payload
+      }
+    }
+
+    const user = await UserModel.findOne({
+      where
+    })
+
+    return user
   }
 }
 

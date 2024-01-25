@@ -21,5 +21,13 @@ export const dependencies: Dependencies = {
     decode: function (token: string): JWTPayload {
       throw new Error('Function not implemented.')
     }
+  },
+  encryptorRepository: {
+    hash: function (password: string): Promise<string> {
+      throw new Error('Function not implemented.')
+    },
+    compare: function (password: string, hash: string): Promise<boolean> {
+      throw new Error('Function not implemented.')
+    }
   }
 }
