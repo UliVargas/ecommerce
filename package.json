@@ -7,7 +7,8 @@
     "alterdb": "ts-node -r dotenv/config ./src/infrastructure/orm/sequelize/alterdb.ts dotenv_config_path=.env",
     "dev": "nodemon -r dotenv/config ./src/infrastructure/server/index.ts dotenv_config_path=.env",
     "build": "swc src -d dist",
-    "test": "jest"
+    "test": "jest",
+    "test:cov": "jest --coverage"
   },
   "author": "Ulises Vargas",
   "license": "ISC",
