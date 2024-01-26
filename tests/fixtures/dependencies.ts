@@ -1,6 +1,6 @@
 import { JWTPayload } from 'jose'
-import { Dependencies } from '../../infrastructure/config/dependencies'
-import { UserEntity } from '../../domain/entities/user.entity'
+import { Dependencies } from '../../src/infrastructure/config/dependencies'
+import { UserEntity } from '../../src/domain/entities/user.entity'
 
 export const dependencies: Dependencies = {
   userRepository: {
