@@ -6,7 +6,7 @@ import { user } from '../../../../fixtures/mock/user'
 describe('UserService', () => {
   describe('Create', () => {
     const createService = CreateService(dependencies)
-    it('Create User', async () => {
+    it('Should return the new created user', async () => {
       dependencies.encryptorRepository.hash = (jest.fn() as jest.MockedFunction<typeof dependencies.encryptorRepository.hash>).mockResolvedValue('hashed123')
       dependencies.userRepository.create = (jest.fn() as jest.MockedFunction<typeof dependencies.userRepository.create>).mockResolvedValue({ id: 'user123', ...user, password: 'hashed123' })
 
@@ -20,16 +20,24 @@ describe('UserService', () => {
 
   describe('FindAll', () => {
     const findAllService = FindAllService(dependencies)
-    it('FindAll Users', async () => {
+    it('Should return an array with all the users', async () => {
       dependencies.userRepository.findAll = (jest.fn() as jest.MockedFunction<typeof dependencies.userRepository.findAll>).mockResolvedValue([user])
 
       const result = await findAllService()
 
       expect(result).toEqual([user])
     })
+
+    it('Should return an empty array', async () => {
+      dependencies.userRepository.findAll = (jest.fn() as jest.MockedFunction<typeof dependencies.userRepository.findAll>).mockResolvedValue([])
+
+      const result = await findAllService()
+
+      expect(result).toEqual([])
+    })
   })
 
-  describe('FindOne', () => {
+  describe('Should return one user by email', () => {
     const findOneService = FindOneService(dependencies)
     it('FindOne User By Email', async () => {
       dependencies.userRepository.findOne = (jest.fn() as jest.MockedFunction<typeof dependencies.userRepository.findOne>).mockResolvedValue(user)
@@ -39,7 +47,7 @@ describe('UserService', () => {
       expect(result).toEqual(user)
     })
 
-    it('FindOne User By Id', async () => {
+    it('Should return one user by id', async () => {
       dependencies.userRepository.findOne = (jest.fn() as jest.MockedFunction<typeof dependencies.userRepository.findOne>).mockResolvedValue(user)
 
       const result = await findOneService(user.id!)
@@ -48,7 +56,7 @@ describe('UserService', () => {
     })
   })
 
-  describe('Login User', () => {
+  describe('Should return a token', () => {
     const loginService = LoginService(dependencies)
     it('Login', async () => {
       dependencies.userRepository.findOne = (jest.fn() as jest.MockedFunction<typeof dependencies.userRepository.findOne>).mockResolvedValue(user)

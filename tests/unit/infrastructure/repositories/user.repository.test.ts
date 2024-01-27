@@ -13,7 +13,7 @@ describe('UserRepository', () => {
   })
 
   describe('Create', () => {
-    it('Create User', async () => {
+    it('Should return the new created user', async () => {
       const mockUser = new User({ id: 'user123', ...user, password: 'hashed123' })
       userModel.create = (jest.fn() as jest.MockedFunction<typeof userModel.create>).mockResolvedValue(mockUser)
 
@@ -25,7 +25,7 @@ describe('UserRepository', () => {
   })
 
   describe('FindAll', () => {
-    it('FindAll Users', async () => {
+    it('Should return an array with all the users', async () => {
       const mockUser = new User({ id: 'user123', ...user, password: 'hashed123' })
       userModel.findAll = (jest.fn() as jest.MockedFunction<typeof userModel.findAll>).mockResolvedValue([mockUser])
 
@@ -34,7 +34,7 @@ describe('UserRepository', () => {
       expect(result).toEqual([mockUser])
     })
 
-    it('FindAll Users', async () => {
+    it('Should return an empty array', async () => {
       userModel.findAll = (jest.fn() as jest.MockedFunction<typeof userModel.findAll>).mockResolvedValue([])
 
       const result = await dependencies.userRepository.findAll()
@@ -44,7 +44,7 @@ describe('UserRepository', () => {
   })
 
   describe('FindOne', () => {
-    it('FindOne User By Email', async () => {
+    it('Should return one user by email', async () => {
       const userInstance = new User({ id: 'user123', ...user })
       userModel.findOne = (jest.fn() as jest.MockedFunction<typeof userModel.findOne>).mockResolvedValue(userInstance)
 
@@ -53,7 +53,7 @@ describe('UserRepository', () => {
       expect(result).toEqual(userInstance)
     })
 
-    it('FindOne User By Id', async () => {
+    it('Should return one user by id', async () => {
       const userInstance = new User({ id: 'user123', ...user })
       userModel.findOne = (jest.fn() as jest.MockedFunction<typeof userModel.findOne>).mockResolvedValue(userInstance)
 
