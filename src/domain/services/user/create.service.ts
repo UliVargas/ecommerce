@@ -1,11 +1,12 @@
 import { Dependencies } from '../../../infrastructure/config/dependencies'
-import { UserEntity } from '../../entities/user.entity'
+import { Role, UserEntity } from '../../entities/user.entity'
 
-interface CreatePayload {
+export interface CreatePayload {
   name: string
   lastname: string
   email: string
-  password: string
+  password: string,
+  role: Role
 }
 
 type CreateUser = (payload: CreatePayload) => Promise<UserEntity>

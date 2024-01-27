@@ -20,7 +20,7 @@ export default (dependencies: Dependencies): UserRepository => {
   }
 
   const findOne = async (req: Request, res: Response) => {
-    const user = await findOneService(req.params.term)
+    const user = await findOneService(req.params.userId)
     res.status(200).json(user)
   }
 

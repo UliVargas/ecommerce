@@ -11,7 +11,7 @@ export default (dependencies: Dependencies) => {
   // const auth = Auth(dependencies)
 
   router.get('/', userControllers.findAll)
-  router.get('/:term', Validations.FindOne, userControllers.findOne)
+  router.get('/:userId', Validations.FindOne, userControllers.findOne)
   router.post('/', Validations.CreateUser, userControllers.create)
   router.post('/login', Validations.Login, userControllers.login)
 

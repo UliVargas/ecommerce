@@ -20,6 +20,6 @@ export const loginSchema = z.object({
   password: props.password
 })
 
-export const findOneSchema = z.object({
-  term: z.union([props.email, props.id])
+export const findOneByIdSchema = z.object({
+  userId: props.id
 })

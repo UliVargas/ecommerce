@@ -9,7 +9,7 @@ interface LoginArgs {
 type LoginService = (payload: LoginArgs) => Promise<{ token: string }>
 
 export default (dependencies: Dependencies): LoginService => async (payload) => {
-  const user = await dependencies.userRepository.findOne(payload.email)
+  const user = await dependencies.userRepository.findOneByEmail(payload.email)
 
   if (!user) {
     throw new ErrorConstructor({

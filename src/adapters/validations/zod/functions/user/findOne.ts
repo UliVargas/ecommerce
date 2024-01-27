@@ -1,11 +1,11 @@
 import { Request, Response, NextFunction } from 'express'
-import { findOneSchema } from '../../schemas/user.schema'
+import { findOneByIdSchema } from '../../schemas/user.schema'
 import { validation } from '../../validation'
 import { ZodError } from 'zod'
 
 export default async (req: Request, res: Response, next: NextFunction) => {
   try {
-    validation(req.params, findOneSchema)
+    validation(req.params, findOneByIdSchema)
     next()
   } catch (error) {
     if (error instanceof ZodError) {

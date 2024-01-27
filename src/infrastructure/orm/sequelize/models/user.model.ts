@@ -1,4 +1,4 @@
-import { Model, STRING, UUID, UUIDV4 } from 'sequelize'
+import { ENUM, Model, STRING, UUID, UUIDV4 } from 'sequelize'
 import sequelize from '..'
 import { UserEntity } from '../../../../domain/entities/user.entity'
 
@@ -32,6 +32,12 @@ User.init({
   password: {
     type: STRING,
     allowNull: false
+  },
+  role: {
+    type: ENUM({
+      values: ['user', 'admin']
+    }),
+    defaultValue: 'user'
   }
 }, {
   sequelize,

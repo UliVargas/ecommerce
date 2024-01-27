@@ -1,38 +1,34 @@
-import { WhereOptions } from 'sequelize'
 import { UserEntity } from '../../../domain/entities/user.entity'
 import { UserRepository } from '../../../ports/repositories/out/user.repository'
 import { UserModel } from '../../orm/sequelize/models/index.model'
-import { emailRegexValidation } from '../../utilities/constants'
+import { CreatePayload } from '../../../domain/services/user/create.service'
 
-class UserSequelizeRepository implements UserRepository {
-  async create (payload: UserEntity): Promise<UserEntity> {
-    return await UserModel.create(payload)
+export default class UserSequelizeRepository implements UserRepository {
+  async create (payload: CreatePayload): Promise<UserEntity> {
+    return this.toResponse(await UserModel.create(payload))
   }
 
-  findAll (): Promise<UserEntity[]> {
-    return UserModel.findAll()
+  async findAll (): Promise<UserEntity[]> {
+    return this.toResponse(await UserModel.findAll())
   }
 
   async findOne (payload: string): Promise<UserEntity | null> {
-    let where: WhereOptions = {}
-    const isEmail = emailRegexValidation.test(payload)
+    const user = await UserModel.findByPk(payload)
+    if (!user) return null
+    return this.toResponse(user)
+  }
 
-    if (isEmail) {
-      where = {
-        email: payload
-      }
-    } else {
-      where = {
-        id: payload
-      }
+  async findOneByEmail (email: string): Promise<UserEntity | null> {
+    const user = await UserModel.findByPk(email)
+    if (!user) return null
+    return this.toResponse(user)
+  }
+
+  toResponse (obj: any) {
+    if (Array.isArray(obj)) {
+      return obj.map(user => user.toJSON())
     }
 
-    const user = await UserModel.findOne({
-      where
-    })
-
-    return user
+    return obj.toJSON()
   }
 }
-
-export default UserSequelizeRepository
