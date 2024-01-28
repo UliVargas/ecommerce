@@ -4,6 +4,7 @@ import * as jose from 'jose'
 import { env } from '../config/env'
 
 const secret = new TextEncoder().encode(env.SECRET_KEY)
+
 class JWTRepository implements AuthRepository {
   async create (payload: any): Promise<string> {
     return await new jose.SignJWT(payload)
