@@ -8,7 +8,7 @@ const {
   ...rest
 } = config
 
-const sequelize = new Sequelize(
+export default new Sequelize(
   database,
   username,
   password,
@@ -17,5 +17,3 @@ const sequelize = new Sequelize(
     ...rest
   }
 )
-
-export default sequelize
