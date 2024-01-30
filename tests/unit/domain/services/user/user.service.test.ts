@@ -8,11 +8,11 @@ describe('UserService', () => {
     const createService = CreateService(dependencies)
     it('Should return the new created user', async () => {
       dependencies.encryptorRepository.hash = (jest.fn() as jest.MockedFunction<typeof dependencies.encryptorRepository.hash>).mockResolvedValue('hashed123')
-      dependencies.userRepository.create = (jest.fn() as jest.MockedFunction<typeof dependencies.userRepository.create>).mockResolvedValue({ id: 'user123', ...user, password: 'hashed123' })
+      dependencies.userRepository.create = (jest.fn() as jest.MockedFunction<typeof dependencies.userRepository.create>).mockResolvedValue({ ...user, password: 'hashed123' })
 
       const result = await createService(user)
 
-      expect(result).toEqual({ id: 'user123', ...user, password: 'hashed123' })
+      expect(result).toEqual({ ...user, password: 'hashed123' })
       expect(dependencies.encryptorRepository.hash).toBeCalledWith(user.password)
       expect(dependencies.userRepository.create).toBeCalledWith({ ...user, password: 'hashed123' })
     })
@@ -37,9 +37,9 @@ describe('UserService', () => {
     })
   })
 
-  describe('Should return one user by email', () => {
+  describe('FindOne User By Email', () => {
     const findOneService = FindOneService(dependencies)
-    it('FindOne User By Email', async () => {
+    it('Should return one user by email', async () => {
       dependencies.userRepository.findOne = (jest.fn() as jest.MockedFunction<typeof dependencies.userRepository.findOne>).mockResolvedValue(user)
 
       const result = await findOneService(user.email)
@@ -56,10 +56,10 @@ describe('UserService', () => {
     })
   })
 
-  describe('Should return a token', () => {
+  describe('Login', () => {
     const loginService = LoginService(dependencies)
-    it('Login', async () => {
-      dependencies.userRepository.findOne = (jest.fn() as jest.MockedFunction<typeof dependencies.userRepository.findOne>).mockResolvedValue(user)
+    it('Should return a token', async () => {
+      dependencies.userRepository.findOneByEmail = (jest.fn() as jest.MockedFunction<typeof dependencies.userRepository.findOneByEmail>).mockResolvedValue(user)
       dependencies.encryptorRepository.compare = (jest.fn() as jest.MockedFunction<typeof dependencies.encryptorRepository.compare>).mockResolvedValue(true)
       dependencies.tokenRepository.create = (jest.fn() as jest.MockedFunction<typeof dependencies.tokenRepository.create>).mockResolvedValue('token123')
 

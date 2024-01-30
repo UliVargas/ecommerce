@@ -12,6 +12,9 @@ export const dependencies: Dependencies = {
     },
     findOne: function (payload: any): Promise<UserEntity> {
       throw new Error('Function not implemented.')
+    },
+    findOneByEmail: function (email: string): Promise<UserEntity | null> {
+      throw new Error('Function not implemented.')
     }
   },
   tokenRepository: {

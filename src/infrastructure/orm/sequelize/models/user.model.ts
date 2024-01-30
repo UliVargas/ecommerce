@@ -1,6 +1,6 @@
 import { ENUM, Model, STRING, UUID, UUIDV4 } from 'sequelize'
 import sequelize from '..'
-import { UserEntity } from '../../../../domain/entities/user.entity'
+import { Role, UserEntity } from '../../../../domain/entities/user.entity'
 
 export class User extends Model<UserEntity, Omit<UserEntity, 'id'>> {
   declare id: string
@@ -8,6 +8,7 @@ export class User extends Model<UserEntity, Omit<UserEntity, 'id'>> {
   declare lastname: string
   declare email: string
   declare password: string
+  declare role: Role
 }
 
 User.init({
@@ -42,5 +43,7 @@ User.init({
 }, {
   sequelize,
   tableName: 'Users',
-  modelName: 'User'
+  modelName: 'User',
+  timestamps: false,
+  createdAt: true
 })
