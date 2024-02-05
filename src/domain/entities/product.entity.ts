@@ -2,7 +2,7 @@ export interface ProductEntity {
   id: string
   title: string
   description: string
-  stock: string
+  stock: number
   slug: string
   tags: string[]
   category: string

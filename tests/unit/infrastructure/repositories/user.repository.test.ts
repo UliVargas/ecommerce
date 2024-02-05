@@ -20,7 +20,7 @@ describe('UserRepository', () => {
       const result = await dependencies.userRepository.create(user)
 
       expect(result).toEqual(userInstance)
-      expect(userModel.create).toHaveBeenCalledWith(user, { raw: true })
+      expect(userModel.create).toHaveBeenCalledWith(user)
     })
   })
 

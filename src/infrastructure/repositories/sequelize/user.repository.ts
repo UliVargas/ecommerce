@@ -9,9 +9,7 @@ export default class UserSequelizeRepository implements UserRepository {
   }
 
   async findAll (): Promise<UserEntity[]> {
-    return await UserModel.findAll({
-      raw: true
-    })
+    return await UserModel.findAll()
   }
 
   async findOne (payload: string): Promise<UserEntity | null> {
