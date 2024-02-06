@@ -12,6 +12,6 @@ export default class ProductSequelizeRepository implements ProductRepository {
   }
 
   findOne (payload: string): Promise<ProductEntity | null> {
-    throw new Error('Method not implemented.')
+    return ProductModel.findByPk(payload)
   }
 }

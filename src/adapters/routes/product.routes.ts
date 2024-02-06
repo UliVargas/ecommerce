@@ -7,6 +7,7 @@ export default (dependencies: Dependencies) => {
   const productControllers = ProductControllers(dependencies)
 
   router.get('/', productControllers.findAll)
+  router.get('/:productId', productControllers.findOne)
 
   return router
 }
