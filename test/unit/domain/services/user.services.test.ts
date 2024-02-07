@@ -2,6 +2,7 @@ import { describe, jest, it, expect } from '@jest/globals'
 import { CreateService, FindAllService, FindOneService, LoginService } from '../../../../src/domain/services/user/index.service'
 import { dependencies } from '../../../fixtures/dependencies'
 import { user } from '../../../fixtures/mock/user'
+import ErrorConstructor from '../../../../src/adapters/middlewares/errors/error.constructor'
 
 describe('UserService', () => {
   describe('Create', () => {
@@ -66,6 +67,24 @@ describe('UserService', () => {
       const result = await loginService({ email: user.email, password: user.password })
 
       expect(result).toEqual({ token: 'token123' })
+    })
+
+    it('Should throw USER_NOT_FOUND error if email does not exist', async () => {
+      dependencies.userRepository.findOneByEmail = (jest.fn() as jest.MockedFunction<typeof dependencies.userRepository.findOneByEmail>).mockResolvedValue(null)
+
+      await expect(loginService({ email: user.email, password: user.password }))
+        .rejects.toThrowError(new ErrorConstructor({ errorCode: 'USER_NOT_FOUND' }))
+      expect(dependencies.userRepository.findOneByEmail).toHaveBeenCalledWith(user.email)
+    })
+
+    it('Should throw INVALID_CREDENTIALS error if password does not match', async () => {
+      dependencies.userRepository.findOneByEmail = (jest.fn() as jest.MockedFunction<typeof dependencies.userRepository.findOneByEmail>).mockResolvedValue(user)
+      dependencies.encryptorRepository.compare = (jest.fn() as jest.MockedFunction<typeof dependencies.encryptorRepository.compare>).mockResolvedValue(false)
+
+      await expect(loginService({ email: user.email, password: user.password }))
+        .rejects.toThrowError(new ErrorConstructor({ errorCode: 'INVALID_CREDENTIALS' }))
+      expect(dependencies.userRepository.findOneByEmail).toHaveBeenCalledWith(user.email)
+      expect(dependencies.encryptorRepository.compare).toHaveBeenCalledWith(user.password, 'pass123')
     })
   })
 })
