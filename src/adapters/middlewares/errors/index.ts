@@ -11,6 +11,10 @@ export const errors: Errors = {
     status: 404,
     message: 'Usuario no encontrado'
   },
+  PRODUCT_NOT_FOUND: {
+    status: 404,
+    message: 'Producto no encontrado'
+  },
   INVALID_CREDENTIALS: {
     status: 401,
     message: 'Credenciales inválidas'

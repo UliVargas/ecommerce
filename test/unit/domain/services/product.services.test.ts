@@ -3,7 +3,7 @@ import { FindAllService, FindOneService } from '../../../../src/domain/services/
 import { dependencies } from '../../../fixtures/dependencies'
 import { product } from '../../../fixtures/mock/product'
 
-describe.skip('ProductService', () => {
+describe('ProductService', () => {
   describe('FindAll', () => {
     const findAllService = FindAllService(dependencies)
     it('Should return array with the products', async () => {
