@@ -19,6 +19,7 @@ export default async (): Promise<Dependencies> => {
   const productRepository: ProductRepository = new ProductSequelizeRepository()
   const tokenRepository: any = new JWTRepository()
   const encryptorRepository: EncryptorRepository = new BcryptRepository()
+
   return {
     userRepository,
     productRepository,

@@ -53,4 +53,15 @@ describe('ProductRepository', () => {
       expect(productModel.findByPk).toHaveBeenCalledWith(product.id)
     })
   })
+
+  describe('Create', () => {
+    it('deberia retornar el producto creado', async () => {
+      const productInstance = new Product(product)
+      productModel.create = (jest.fn() as jest.MockedFunction<typeof productModel.create>).mockResolvedValue(productInstance)
+
+      const result = await dependencies.productRepository.create(product as any)
+
+      expect(result).toEqual(productInstance)
+    })
+  })
 })

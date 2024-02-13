@@ -1,7 +1,8 @@
 import { describe, expect, jest, it } from '@jest/globals'
-import { FindAllService, FindOneService } from '../../../../src/domain/services/product/index.service'
+import { FindAllService, FindOneService, CreateService } from '../../../../src/domain/services/product/index.service'
 import { dependencies } from '../../../fixtures/dependencies'
 import { product } from '../../../fixtures/mock/product'
+import ErrorConstructor from '../../../../src/adapters/middlewares/errors/error.constructor'
 
 describe('ProductService', () => {
   describe('FindAll', () => {
@@ -43,6 +44,24 @@ describe('ProductService', () => {
 
       expect(result).toEqual(null)
       expect(dependencies.productRepository.findOne).toHaveBeenCalledWith(product.id)
+    })
+  })
+
+  describe('Create', () => {
+    const createService = CreateService(dependencies)
+    it('deberia retornar PRODUCT_EXIST si el producto existe', async () => {
+      dependencies.productRepository.findOne = (jest.fn() as jest.MockedFunction<typeof dependencies.productRepository.findOne>).mockResolvedValue(product)
+
+      await expect(createService(product)).rejects.toThrowError(new ErrorConstructor({ errorCode: 'PRODUCT_EXIST' }))
+    })
+
+    it('deberia retornar el producto creado', async () => {
+      dependencies.productRepository.findOne = (jest.fn() as jest.MockedFunction<typeof dependencies.productRepository.findOne>).mockResolvedValue(null)
+      dependencies.productRepository.create = (jest.fn() as jest.MockedFunction<typeof dependencies.productRepository.create>).mockResolvedValue(product)
+
+      const result = await createService(product)
+
+      expect(result).toEqual(product)
     })
   })
 })

@@ -8,6 +8,7 @@ export default (dependencies: Dependencies) => {
 
   router.get('/', productControllers.findAll)
   router.get('/:productId', productControllers.findOne)
+  router.post('/', productControllers.create)
 
   return router
 }

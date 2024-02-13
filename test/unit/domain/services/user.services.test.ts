@@ -59,16 +59,6 @@ describe('UserService', () => {
 
   describe('Login', () => {
     const loginService = LoginService(dependencies)
-    it('Should return a token', async () => {
-      dependencies.userRepository.findOneByEmail = (jest.fn() as jest.MockedFunction<typeof dependencies.userRepository.findOneByEmail>).mockResolvedValue(user)
-      dependencies.encryptorRepository.compare = (jest.fn() as jest.MockedFunction<typeof dependencies.encryptorRepository.compare>).mockResolvedValue(true)
-      dependencies.tokenRepository.create = (jest.fn() as jest.MockedFunction<typeof dependencies.tokenRepository.create>).mockResolvedValue('token123')
-
-      const result = await loginService({ email: user.email, password: user.password })
-
-      expect(result).toEqual({ token: 'token123' })
-    })
-
     it('Should throw USER_NOT_FOUND error if email does not exist', async () => {
       dependencies.userRepository.findOneByEmail = (jest.fn() as jest.MockedFunction<typeof dependencies.userRepository.findOneByEmail>).mockResolvedValue(null)
 
@@ -85,6 +75,16 @@ describe('UserService', () => {
         .rejects.toThrowError(new ErrorConstructor({ errorCode: 'INVALID_CREDENTIALS' }))
       expect(dependencies.userRepository.findOneByEmail).toHaveBeenCalledWith(user.email)
       expect(dependencies.encryptorRepository.compare).toHaveBeenCalledWith(user.password, 'pass123')
+    })
+
+    it('Should return a token', async () => {
+      dependencies.userRepository.findOneByEmail = (jest.fn() as jest.MockedFunction<typeof dependencies.userRepository.findOneByEmail>).mockResolvedValue(user)
+      dependencies.encryptorRepository.compare = (jest.fn() as jest.MockedFunction<typeof dependencies.encryptorRepository.compare>).mockResolvedValue(true)
+      dependencies.tokenRepository.create = (jest.fn() as jest.MockedFunction<typeof dependencies.tokenRepository.create>).mockResolvedValue('token123')
+
+      const result = await loginService({ email: user.email, password: user.password })
+
+      expect(result).toEqual({ token: 'token123' })
     })
   })
 })

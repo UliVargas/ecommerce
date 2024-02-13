@@ -3,8 +3,8 @@ import { ProductRepository } from '../../../ports/repositories/out/product.repos
 import { ProductModel } from '../../orm/sequelize/models/index.model'
 
 export default class ProductSequelizeRepository implements ProductRepository {
-  create (payload: string): Promise<ProductEntity> {
-    throw new Error('Method not implemented.')
+  create (payload: any): Promise<ProductEntity> {
+    return ProductModel.create(payload)
   }
 
   findAll (): Promise<ProductEntity[]> {

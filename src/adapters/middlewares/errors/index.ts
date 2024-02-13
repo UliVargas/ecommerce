@@ -18,6 +18,10 @@ export const errors: Errors = {
   INVALID_CREDENTIALS: {
     status: 401,
     message: 'Credenciales inválidas'
+  },
+  PRODUCT_EXIST: {
+    status: 409,
+    message: 'El producto ya existe'
   }
 }
 
