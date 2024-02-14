@@ -1,4 +1,4 @@
-import { ARRAY, BOOLEAN, Model, INTEGER, Optional, STRING, UUID, UUIDV4 } from 'sequelize'
+import { ARRAY, BOOLEAN, Model, INTEGER, Optional, STRING, UUID, UUIDV4, DECIMAL } from 'sequelize'
 import sequelize from '..'
 import { ProductEntity } from '../../../../domain/entities/product.entity'
 
@@ -48,15 +48,15 @@ Product.init({
     allowNull: false
   },
   price: {
-    type: INTEGER,
-    defaultValue: 0
+    type: DECIMAL,
+    allowNull: false
   },
   images: {
     type: ARRAY(STRING),
     allowNull: false
   },
   averageRating: {
-    type: INTEGER,
+    type: DECIMAL,
     defaultValue: 0
   },
   isFeatured: {

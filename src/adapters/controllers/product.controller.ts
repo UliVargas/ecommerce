@@ -18,7 +18,7 @@ export default (dependencies: Dependencies) => {
   }
 
   const create = async (req: Request, res: Response) => {
-    const user = await createService(req.params.productId)
+    const user = await createService(req.body)
     res.status(200).json(user)
   }
 

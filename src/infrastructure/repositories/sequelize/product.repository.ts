@@ -1,9 +1,10 @@
 import { ProductEntity } from '../../../domain/entities/product.entity'
 import { ProductRepository } from '../../../ports/repositories/out/product.repository'
 import { ProductModel } from '../../orm/sequelize/models/index.model'
+import { CreateProduct } from '../../../domain/services/product/create.service'
 
 export default class ProductSequelizeRepository implements ProductRepository {
-  create (payload: any): Promise<ProductEntity> {
+  create (payload: CreateProduct): Promise<ProductEntity> {
     return ProductModel.create(payload)
   }
 
@@ -11,7 +12,7 @@ export default class ProductSequelizeRepository implements ProductRepository {
     return ProductModel.findAll()
   }
 
-  findOne (payload: string): Promise<ProductEntity | null> {
-    return ProductModel.findByPk(payload)
+  findOne (elementId: string): Promise<ProductEntity | null> {
+    return ProductModel.findByPk(elementId)
   }
 }

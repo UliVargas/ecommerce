@@ -12,8 +12,8 @@ export default class UserSequelizeRepository implements UserRepository {
     return await UserModel.findAll()
   }
 
-  async findOne (payload: string): Promise<UserEntity | null> {
-    const user = await UserModel.findByPk(payload)
+  async findOne (elementId: string): Promise<UserEntity | null> {
+    const user = await UserModel.findByPk(elementId)
     if (!user) return null
     return user
   }

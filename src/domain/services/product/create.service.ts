@@ -1,14 +1,9 @@
 import ErrorConstructor from '../../../adapters/middlewares/errors/error.constructor'
 import { Dependencies } from '../../../infrastructure/config/dependencies'
+import { ProductEntity } from '../../entities/product.entity'
 
-export default (dependencies: Dependencies) => async (payload: any) => {
-  const product = await dependencies.productRepository.findOne(payload.id)
+export type CreateProduct = Omit<ProductEntity, 'id'>
 
-  if (product) {
-    throw new ErrorConstructor({
-      errorCode: 'PRODUCT_EXIST'
-    })
-  }
-
+export default (dependencies: Dependencies) => async (payload: CreateProduct) => {
   return dependencies.productRepository.create(payload)
 }
