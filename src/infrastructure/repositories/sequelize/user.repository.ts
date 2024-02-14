@@ -19,7 +19,11 @@ export default class UserSequelizeRepository implements UserRepository {
   }
 
   async findOneByEmail (email: string): Promise<UserEntity | null> {
-    const user = await UserModel.findByPk(email)
+    const user = await UserModel.findOne({
+      where: {
+        email
+      }
+    })
     if (!user) return null
     return user
   }

@@ -1,5 +1,5 @@
-import CreateProductValidation from './create'
+import CreateProduct from './create'
 
-export {
-  CreateProductValidation
+export default {
+  CreateProduct
 }

@@ -6,8 +6,8 @@ import { env } from '../config/env'
 const secret = new TextEncoder().encode(env.SECRET_KEY)
 
 class JWTRepository implements AuthRepository {
-  async create (payload: any): Promise<string> {
-    return await new jose.SignJWT(payload)
+  create (payload: any): Promise<string> {
+    return new jose.SignJWT(payload)
       .setProtectedHeader({ alg: 'HS256' })
       .setExpirationTime('24h')
       .sign(secret)

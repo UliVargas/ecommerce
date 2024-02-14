@@ -11,9 +11,11 @@ export default async (dependencies: Dependencies): Promise<Application> => {
   app.use(json())
   app.use(morgan('dev'))
   app.use('/api', router)
+
   app.use((req: Request, res: Response) => {
     res.status(404).send('Route Not Found')
   })
+
   app.use(ErrorHandle)
 
   return app

@@ -22,6 +22,14 @@ export const errors: Errors = {
   PRODUCT_EXIST: {
     status: 409,
     message: 'El producto ya existe'
+  },
+  MISSING_TOKEN: {
+    status: 401,
+    message: 'Token no encontrado'
+  },
+  INVALID_TOKEN: {
+    status: 403,
+    message: 'Token inválido'
   }
 }
 

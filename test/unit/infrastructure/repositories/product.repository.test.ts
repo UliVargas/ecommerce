@@ -59,7 +59,7 @@ describe('ProductRepository', () => {
       const productInstance = new Product(product)
       productModel.create = (jest.fn() as jest.MockedFunction<typeof productModel.create>).mockResolvedValue(productInstance)
 
-      const result = await dependencies.productRepository.create(product as any)
+      const result = await dependencies.productRepository.create(product)
 
       expect(result).toEqual(productInstance)
     })
