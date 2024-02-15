@@ -10,7 +10,8 @@
     "test": "jest",
     "test:cov": "jest --coverage",
     "prepare": "husky",
-    "lint": "eslint . --ext .ts"
+    "lint": "eslint . --ext .ts",
+    "lint:fix": "eslint . --ext .ts --fix"
   },
   "author": "Ulises Vargas",
   "license": "ISC",
