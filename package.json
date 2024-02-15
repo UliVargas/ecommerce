@@ -9,7 +9,8 @@
     "build": "swc src -d dist",
     "test": "jest",
     "test:cov": "jest --coverage",
-    "prepare": "husky"
+    "prepare": "husky",
+    "lint": "eslint . --ext .ts"
   },
   "author": "Ulises Vargas",
   "license": "ISC",

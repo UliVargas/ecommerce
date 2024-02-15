@@ -11,7 +11,7 @@ describe('ProductService', () => {
 
       const result = await findAllService()
 
-      expect(result).toEqual([product])
+      expect(result).toEqual(product)
       expect(dependencies.productRepository.findAll).toHaveBeenCalled()
     })
 
