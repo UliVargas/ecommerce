@@ -1,5 +1,5 @@
 import { JWTPayload } from 'jose'
-import { AuthRepository } from '../../ports/repositories/in/auth.respository'
+import { AuthRepository } from '../../ports/adapters/in/auth.respository'
 import * as jose from 'jose'
 import { env } from '../config/env'
 

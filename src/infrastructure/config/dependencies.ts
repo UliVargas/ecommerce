@@ -1,4 +1,4 @@
-import { AuthRepository } from '../../ports/repositories/in/auth.respository'
+import { AuthRepository } from '../../ports/adapters/in/auth.respository'
 import { EncryptorRepository } from '../../ports/repositories/out/encryptor.repository'
 import { ProductRepository } from '../../ports/repositories/out/product.repository'
 import { UserRepository } from '../../ports/repositories/out/user.repository'

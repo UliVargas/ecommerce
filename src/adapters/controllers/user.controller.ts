@@ -1,7 +1,7 @@
 import { Request, Response } from 'express'
 import { Dependencies } from '../../infrastructure/config/dependencies'
 import { LoginService, CreateService, FindAllService, FindOneService } from '../../domain/services/user/index.service'
-import { UserRepository } from '../../ports/repositories/in/user.repository'
+import { UserRepository } from '../../ports/adapters/in/user.repository'
 
 export default (dependencies: Dependencies): UserRepository => {
   const loginService = LoginService(dependencies)
