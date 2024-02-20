@@ -13,7 +13,7 @@
     "lint": "eslint . --ext .ts",
     "lint:fix": "eslint . --ext .ts --fix",
     "release": "standard-version && git push --follow-tags",
-    "commit": "exec < /dev/tty && git cz --hook || true"
+    "commit": "cz"
   },
   "author": "Ulises Vargas",
   "license": "ISC",
