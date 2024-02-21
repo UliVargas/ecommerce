@@ -2,6 +2,15 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.3.0](https://github.com/UliVargas/ecommerce/compare/v1.2.0...v1.3.0) (2024-02-21)
+
+
+### Features
+
+* **custom:** elimino una propeidad de producrt entiry ([113d142](https://github.com/UliVargas/ecommerce/commit/113d1422dd98ef31e905fb0419ebbd511b128d7c))
+* **custom:** endpint de eliminar usuario ([5d452bc](https://github.com/UliVargas/ecommerce/commit/5d452bcfd1d699f03187ce1893d45897d561002c))
+* **custom:** regeso todo como estaba antes ([2cd3750](https://github.com/UliVargas/ecommerce/commit/2cd375060318bc79c48441c57c9adef19a72d3af))
+
 ## [1.2.0](https://github.com/UliVargas/ecommerce/compare/v1.1.1...v1.2.0) (2024-02-21)
 
 
