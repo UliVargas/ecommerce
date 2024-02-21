@@ -1,7 +1,7 @@
 import { JWTPayload } from 'jose'
 import { Dependencies } from '../../src/infrastructure/config/dependencies'
-import { UserEntity } from '../../src/domain/entities/user.entity'
-import { ProductEntity } from '../../src/domain/entities/product.entity'
+import { UserEntity } from '../../src/core/entities/user.entity'
+import { ProductEntity } from '../../src/core/entities/product.entity'
 
 export const dependencies: Dependencies = {
   userRepository: {
@@ -11,10 +11,16 @@ export const dependencies: Dependencies = {
     findAll: function (): Promise<UserEntity[]> {
       throw new Error('Function not implemented.')
     },
-    findOne: function (payload: any): Promise<UserEntity> {
+    findById: function (payload: any): Promise<UserEntity> {
       throw new Error('Function not implemented.')
     },
     findOneByEmail: function (email: string): Promise<UserEntity | null> {
+      throw new Error('Function not implemented.')
+    },
+    update: function (id: string, data: Partial<UserEntity>): Promise<UserEntity | null> {
+      throw new Error('Function not implemented.')
+    },
+    delete: function (id: string): Promise<boolean> {
       throw new Error('Function not implemented.')
     }
   },
@@ -35,13 +41,19 @@ export const dependencies: Dependencies = {
     }
   },
   productRepository: {
-    create: function (payload: string): Promise<ProductEntity> {
-      throw new Error('Function not implemented.')
-    },
     findAll: function (): Promise<ProductEntity[]> {
       throw new Error('Function not implemented.')
     },
-    findOne: function (payload: string | ProductEntity): Promise<ProductEntity | null> {
+    findById: function (id: string): Promise<ProductEntity | null> {
+      throw new Error('Function not implemented.')
+    },
+    create: function (data: Partial<ProductEntity>): Promise<ProductEntity> {
+      throw new Error('Function not implemented.')
+    },
+    update: function (id: string, data: Partial<ProductEntity>): Promise<ProductEntity | null> {
+      throw new Error('Function not implemented.')
+    },
+    delete: function (id: string): Promise<boolean> {
       throw new Error('Function not implemented.')
     }
   }

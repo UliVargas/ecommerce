@@ -38,7 +38,7 @@ describe('ProductRepository', () => {
       const productInstance = new Product(product)
       productModel.findByPk = (jest.fn() as jest.MockedFunction<typeof productModel.findByPk>).mockResolvedValue(productInstance)
 
-      const result = await dependencies.productRepository.findOne(product.id)
+      const result = await dependencies.productRepository.findById(product.id)
 
       expect(result).toEqual(productInstance)
       expect(productModel.findByPk).toHaveBeenCalledWith(product.id)
@@ -47,7 +47,7 @@ describe('ProductRepository', () => {
     it('Should return a null', async () => {
       productModel.findByPk = (jest.fn() as jest.MockedFunction<typeof productModel.findByPk>).mockResolvedValue(null)
 
-      const result = await dependencies.productRepository.findOne(product.id)
+      const result = await dependencies.productRepository.findById(product.id)
 
       expect(result).toEqual(null)
       expect(productModel.findByPk).toHaveBeenCalledWith(product.id)

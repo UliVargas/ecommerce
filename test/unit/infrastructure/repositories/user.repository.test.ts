@@ -48,7 +48,7 @@ describe('UserRepository', () => {
       const userInstance = new User(user)
       userModel.findOne = (jest.fn() as jest.MockedFunction<typeof userModel.findOne>).mockResolvedValue(userInstance)
 
-      const result = await dependencies.userRepository.findOne(user.email)
+      const result = await dependencies.userRepository.findById(user.email)
 
       expect(result).toEqual(userInstance)
     })
@@ -57,7 +57,7 @@ describe('UserRepository', () => {
       const userInstance = new User({ ...user })
       userModel.findOne = (jest.fn() as jest.MockedFunction<typeof userModel.findOne>).mockResolvedValue(userInstance)
 
-      const result = await dependencies.userRepository.findOne(user.id!)
+      const result = await dependencies.userRepository.findById(user.id!)
 
       expect(result).toEqual(userInstance)
     })

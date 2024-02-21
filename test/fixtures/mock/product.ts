@@ -1,4 +1,4 @@
-import { ProductEntity } from '../../../src/domain/entities/product.entity'
+import { ProductEntity } from '../../../src/core/entities/product.entity'
 
 export const product: ProductEntity = {
   id: 'product123',
