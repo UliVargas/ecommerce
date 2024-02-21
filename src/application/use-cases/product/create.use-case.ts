@@ -1,4 +1,3 @@
-import ErrorConstructor from '../../../interfaces/middlewares/errors/error.constructor'
 import { ProductEntity } from '../../../core/entities/product.entity'
 import { Dependencies } from '../../../infrastructure/config/dependencies'
 
