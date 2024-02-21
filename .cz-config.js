@@ -22,6 +22,8 @@ module.exports = {
     },
     { value: "revert", name: "revert: Revertir a un commit" },
   ],
+  allowCustomScopes: true,
+  allowBreakingChanges: ['feat', 'fix'],
   messages: {
     type: 'Selecciona el tipo de cambio que estás realizando:',
     scope: 'Indica el alcance del cambio (opcional):',
@@ -30,6 +32,6 @@ module.exports = {
     body: 'Proporciona una descripción más detallada del cambio (opcional). Usa "|" para realizar saltos de línea:\n',
     breaking: 'Describe cualquier cambio que rompa la compatibilidad (opcional):\n',
     footer: 'Añade cualquier referencia a tareas, problemas o enlaces de relevancia (opcional). Ej. "#31, #34":',
-    confirmCommit: '¿Estás seguro de que deseas proceder con el commit?',
+    confirmCommit: '¿Estás seguro de que deseas proceder con el commit?'
   },
 };
