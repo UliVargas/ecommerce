@@ -22,7 +22,6 @@ module.exports = {
     },
     { value: "revert", name: "revert: Revertir a un commit" },
   ],
-  allowCustomScopes: true,
   allowBreakingChanges: ['feat', 'fix'],
   messages: {
     type: 'Selecciona el tipo de cambio que estás realizando:',
