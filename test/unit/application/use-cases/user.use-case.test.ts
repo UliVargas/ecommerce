@@ -7,7 +7,17 @@ import ErrorConstructor from '../../../../src/interfaces/middlewares/errors/erro
 describe('UserService', () => {
   describe('Create', () => {
     const createUsCreateUseCase = CreateUseCase(dependencies)
+
+    it('Should throw an error if the user already exists', async () => {
+      dependencies.userRepository.findOneByEmail = (jest.fn() as jest.MockedFunction<typeof dependencies.userRepository.findOneByEmail>).mockResolvedValue(user)
+
+      await expect(createUsCreateUseCase(user))
+        .rejects.toThrowError(new ErrorConstructor({ errorCode: 'USER_ALREADY_EXISTS' }))
+      expect(dependencies.userRepository.findOneByEmail).toBeCalledWith(user.email)
+    })
+
     it('Should return the new created user', async () => {
+      dependencies.userRepository.findOneByEmail = (jest.fn() as jest.MockedFunction<typeof dependencies.userRepository.findOneByEmail>).mockResolvedValue(null)
       dependencies.encryptorRepository.hash = (jest.fn() as jest.MockedFunction<typeof dependencies.encryptorRepository.hash>).mockResolvedValue('hashed123')
       dependencies.userRepository.create = (jest.fn() as jest.MockedFunction<typeof dependencies.userRepository.create>).mockResolvedValue({ ...user, password: 'hashed123' })
 

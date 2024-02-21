@@ -30,6 +30,10 @@ export const errors: Errors = {
   INVALID_TOKEN: {
     status: 403,
     message: 'Token inválido'
+  },
+  USER_ALREADY_EXISTS: {
+    status: 409,
+    message: 'El usuario ya existe'
   }
 }
 

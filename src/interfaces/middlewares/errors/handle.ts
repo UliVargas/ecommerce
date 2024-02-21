@@ -3,6 +3,8 @@ import { errors, errorsDB } from '.'
 import ErrorConstructor from './error.constructor'
 
 export const formatError = (error: any): ErrorConstructor => {
+  console.log('error', error)
+
   let errToSend: ErrorConstructor
   let errorInErrors = errors[error.errorCode] ?? errorsDB[error.parent.code]
 
