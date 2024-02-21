@@ -20,7 +20,7 @@ export const dependencies: Dependencies = {
     update: function (id: string, data: Partial<UserEntity>): Promise<UserEntity | null> {
       throw new Error('Function not implemented.')
     },
-    delete: function (id: string): Promise<boolean> {
+    delete: function (id: string): Promise<number> {
       throw new Error('Function not implemented.')
     }
   },
@@ -53,7 +53,7 @@ export const dependencies: Dependencies = {
     update: function (id: string, data: Partial<ProductEntity>): Promise<ProductEntity | null> {
       throw new Error('Function not implemented.')
     },
-    delete: function (id: string): Promise<boolean> {
+    delete: function (id: string): Promise<number> {
       throw new Error('Function not implemented.')
     }
   }
