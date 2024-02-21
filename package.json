@@ -44,6 +44,8 @@
     "@typescript-eslint/eslint-plugin": "^6.4.0",
     "conventional-changelog": "^5.1.0",
     "cz-conventional-changelog": "^3.3.0",
+    "cz-customizable": "^7.0.0",
+    "cz-emoji": "1.3.2-canary.2",
     "eslint": "^8.56.0",
     "eslint-config-standard-with-typescript": "^43.0.1",
     "eslint-plugin-import": "^2.25.2",
@@ -59,8 +61,11 @@
   },
   "config": {
     "commitizen": {
-      "path": "./node_modules/cz-conventional-changelog"
+      "path": "./node_modules/cz-customizable"
     }
+  },
+  "config-cz": {
+    "path": "./node_modules/cz-customizable"
   },
   "husky": {
     "hooks": {
