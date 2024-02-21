@@ -1,4 +1,4 @@
-import { Model, STRING, DECIMAL, DATE, UUID, UUIDV4 } from 'sequelize'
+import { Model, STRING, DECIMAL, UUID, UUIDV4 } from 'sequelize'
 import sequelize from '../../infrastructure/orm/sequelize'
 class Transaction extends Model {
   public transaction_id!: number

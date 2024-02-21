@@ -9,7 +9,7 @@ export default (dependencies: Dependencies) => {
   const userControllers = UserControllers(dependencies)
   const auth = Auth(dependencies)
 
-  router.get('/', auth, userControllers.findAll)
+  router.get('/', userControllers.findAll)
   router.get('/:userId', auth, Validations.FindOne, userControllers.findOne)
   router.post('/', Validations.CreateUser, userControllers.create)
   router.post('/login', Validations.Login, userControllers.login)
