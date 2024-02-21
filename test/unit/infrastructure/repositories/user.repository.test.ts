@@ -62,4 +62,14 @@ describe('UserRepository', () => {
       expect(result).toEqual(userInstance)
     })
   })
+
+  describe('Delete', () => {
+    it('Should return true if the user was deleted', async () => {
+      userModel.destroy = (jest.fn() as jest.MockedFunction<typeof userModel.destroy>).mockResolvedValue(1)
+
+      const result = await dependencies.userRepository.delete(user.id)
+
+      expect(result).toEqual(1)
+    })
+  })
 })

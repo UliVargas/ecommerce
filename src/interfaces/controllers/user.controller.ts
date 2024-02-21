@@ -1,6 +1,6 @@
 import { Request, Response } from 'express'
 import { Dependencies } from '../../infrastructure/config/dependencies'
-import { LoginUseCase, CreateUseCase, FindAllUseCase, FindOneUseCase } from '../../application/use-cases/user/index.use-case'
+import { LoginUseCase, CreateUseCase, FindAllUseCase, FindOneUseCase, DeleteUseCase } from '../../application/use-cases/user/index.use-case'
 import { UserControllersRepository } from '../../core/interfaces/user.repository'
 
 export default (dependencies: Dependencies): UserControllersRepository => {
@@ -8,6 +8,7 @@ export default (dependencies: Dependencies): UserControllersRepository => {
   const createUseCase = CreateUseCase(dependencies)
   const findAllUseCase = FindAllUseCase(dependencies)
   const findOneUseCase = FindOneUseCase(dependencies)
+  const deleteUseCase = DeleteUseCase(dependencies)
 
   const create = async (req: Request, res: Response) => {
     const user = await createUseCase(req.body)
@@ -30,10 +31,16 @@ export default (dependencies: Dependencies): UserControllersRepository => {
     res.status(200).json(token)
   }
 
+  const deleteById = async (req: Request, res: Response) => {
+    const userDeleted = await deleteUseCase(req.params.userId)
+    res.status(204).json(userDeleted)
+  }
+
   return {
     create,
     findAll,
     findOne,
-    login
+    login,
+    deleteById
   }
 }

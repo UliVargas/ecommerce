@@ -5,4 +5,5 @@ export interface ControllersRepository {
   create: (req:Request, res: Response) => Promise<void>
   findAll: (req:Request, res: Response) => Promise<void>
   findOne: (req:Request, res: Response) => Promise<void>
+  deleteById: (req:Request, res: Response) => Promise<void>
 }

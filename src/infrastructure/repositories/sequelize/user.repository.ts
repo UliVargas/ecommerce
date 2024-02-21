@@ -32,7 +32,11 @@ export default class UserSequelizeRepository implements UserRepository {
     throw new Error('Method not implemented.')
   }
 
-  delete (id: string): Promise<boolean> {
-    throw new Error('Method not implemented.')
+  delete (id: string): Promise<number> {
+    return UserModel.destroy({
+      where: {
+        id
+      }
+    })
   }
 }

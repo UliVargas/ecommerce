@@ -13,6 +13,7 @@ export default (dependencies: Dependencies) => {
   router.get('/:userId', auth, Validations.FindOne, userControllers.findOne)
   router.post('/', Validations.CreateUser, userControllers.create)
   router.post('/login', Validations.Login, userControllers.login)
+  router.delete('/:userId', auth, userControllers.deleteById)
 
   return router
 }

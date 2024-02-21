@@ -1,5 +1,5 @@
 import { describe, jest, it, expect } from '@jest/globals'
-import { CreateUseCase, FindAllUseCase, FindOneUseCase, LoginUseCase } from '../../../../src/application/use-cases/user/index.use-case'
+import { CreateUseCase, FindAllUseCase, FindOneUseCase, LoginUseCase, DeleteUseCase } from '../../../../src/application/use-cases/user/index.use-case'
 import { dependencies } from '../../../fixtures/dependencies'
 import { user } from '../../../fixtures/mock/user'
 import ErrorConstructor from '../../../../src/interfaces/middlewares/errors/error.constructor'
@@ -85,6 +85,18 @@ describe('UserService', () => {
       const result = await loginUseLoginUseCase({ email: user.email, password: user.password })
 
       expect(result).toEqual({ token: 'token123' })
+    })
+  })
+
+  describe('Delete', () => {
+    const deleteUseCase = DeleteUseCase(dependencies)
+    it('Should return the deleted user', async () => {
+      dependencies.userRepository.delete = (jest.fn() as jest.MockedFunction<typeof dependencies.userRepository.delete>).mockResolvedValue(1)
+
+      const result = await deleteUseCase(user.id)
+
+      expect(result).toEqual(1)
+      expect(dependencies.userRepository.findById).toBeCalledWith(user.id)
     })
   })
 })
