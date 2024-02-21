@@ -1,4 +1,4 @@
-import ErrorConstructor from '../../../adapters/middlewares/errors/error.constructor'
+import ErrorConstructor from '../../../interfaces/middlewares/errors/error.constructor'
 import { Dependencies } from '../../../infrastructure/config/dependencies'
 
 interface LoginArgs {

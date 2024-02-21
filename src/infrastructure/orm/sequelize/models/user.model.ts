@@ -1,6 +1,6 @@
 import { ENUM, Model, STRING, UUID, UUIDV4 } from 'sequelize'
 import sequelize from '..'
-import { Role, UserEntity } from '../../../../domain/entities/user.entity'
+import { Role, UserEntity } from '../../../../core/entities/user.entity'
 
 export class User extends Model<UserEntity, Omit<UserEntity, 'id'>> {
   declare id: string

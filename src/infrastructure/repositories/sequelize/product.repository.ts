@@ -1,7 +1,7 @@
-import { ProductEntity } from '../../../domain/entities/product.entity'
-import { ProductRepository } from '../../../ports/repositories/out/product.repository'
+import { CreateProduct } from '../../../application/use-cases/product/create.use-case'
+import { ProductEntity } from '../../../core/entities/product.entity'
+import { ProductRepository } from '../../../core/repositories/product.repository'
 import { ProductModel } from '../../orm/sequelize/models/index.model'
-import { CreateProduct } from '../../../domain/services/product/create.service'
 
 export default class ProductSequelizeRepository implements ProductRepository {
   create (payload: CreateProduct): Promise<ProductEntity> {
@@ -12,7 +12,15 @@ export default class ProductSequelizeRepository implements ProductRepository {
     return ProductModel.findAll()
   }
 
-  findOne (elementId: string): Promise<ProductEntity | null> {
-    return ProductModel.findByPk(elementId)
+  findById (id: string): Promise<ProductEntity | null> {
+    return ProductModel.findByPk(id)
+  }
+
+  update (id: string, data: Partial<ProductEntity>): Promise<ProductEntity | null> {
+    throw new Error('Method not implemented.')
+  }
+
+  delete (id: string): Promise<boolean> {
+    throw new Error('Method not implemented.')
   }
 }

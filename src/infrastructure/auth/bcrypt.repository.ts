@@ -1,4 +1,4 @@
-import { EncryptorRepository } from '../../ports/repositories/out/encryptor.repository'
+import { EncryptorRepository } from '../../core/repositories/encryptor.repository'
 import * as bcrypt from 'bcrypt'
 
 class BcryptRepository implements EncryptorRepository {

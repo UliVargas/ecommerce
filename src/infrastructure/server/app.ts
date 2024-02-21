@@ -1,8 +1,8 @@
 import express, { Application, json, Request, Response } from 'express'
 import morgan from 'morgan'
 import { Dependencies } from '../config/dependencies'
-import Router from '../../adapters/routes/index.routes'
-import ErrorHandle from '../../adapters/middlewares/errors/handle'
+import Router from '../../interfaces/routes/index.routes'
+import ErrorHandle from '../../interfaces/middlewares/errors/handle'
 
 export default async (dependencies: Dependencies): Promise<Application> => {
   const router = Router(dependencies)

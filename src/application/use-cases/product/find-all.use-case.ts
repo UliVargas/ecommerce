@@ -1,5 +1,5 @@
+import { ProductEntity } from '../../../core/entities/product.entity'
 import { Dependencies } from '../../../infrastructure/config/dependencies'
-import { ProductEntity } from '../../entities/product.entity'
 
 type FindAllService = () => Promise<ProductEntity[]>
 

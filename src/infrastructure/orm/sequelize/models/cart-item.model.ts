@@ -1,5 +1,5 @@
 import { Model, INTEGER, UUID, UUIDV4 } from 'sequelize'
-import { Status } from '../../../../domain/entities/cart.entity'
+import { Status } from '../../../../core/entities/cart.entity'
 import sequelize from '..'
 export class CartItem extends Model {
   declare id: string

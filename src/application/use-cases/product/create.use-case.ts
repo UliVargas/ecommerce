@@ -1,6 +1,6 @@
-import ErrorConstructor from '../../../adapters/middlewares/errors/error.constructor'
+import ErrorConstructor from '../../../interfaces/middlewares/errors/error.constructor'
+import { ProductEntity } from '../../../core/entities/product.entity'
 import { Dependencies } from '../../../infrastructure/config/dependencies'
-import { ProductEntity } from '../../entities/product.entity'
 
 export type CreateProduct = Omit<ProductEntity, 'id'>
 

@@ -1,6 +1,6 @@
 import { ARRAY, BOOLEAN, Model, INTEGER, Optional, STRING, UUID, UUIDV4, DECIMAL } from 'sequelize'
 import sequelize from '..'
-import { ProductEntity } from '../../../../domain/entities/product.entity'
+import { ProductEntity } from '../../../../core/entities/product.entity'
 
 export class Product extends Model<ProductEntity, Optional<ProductEntity, 'id'>> {
   declare id: string

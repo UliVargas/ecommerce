@@ -1,5 +1,5 @@
+import { Role, UserEntity } from '../../../core/entities/user.entity'
 import { Dependencies } from '../../../infrastructure/config/dependencies'
-import { Role, UserEntity } from '../../entities/user.entity'
 
 export interface CreatePayload {
   name: string
