@@ -10,4 +10,5 @@ export interface ProductEntity {
   images: string[]
   averageRating: number
   isFeatured: boolean
+  isAvailable: boolean
 }
