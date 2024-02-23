@@ -1,2 +1,2 @@
-npm run test
+npx --no jest
 npm run lint

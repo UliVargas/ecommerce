@@ -12,7 +12,7 @@
     "prepare": "husky",
     "lint": "eslint . --ext .ts",
     "lint:fix": "eslint . --ext .ts --fix",
-    "release": "standard-version",
+    "release": "standard-version && git push --follow-tags origin main",
     "commit": "cz"
   },
   "author": "Ulises Vargas",
@@ -63,11 +63,6 @@
   "config": {
     "commitizen": {
       "path": "./node_modules/cz-conventional-changelog"
-    }
-  },
-  "husky": {
-    "hooks": {
-      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
     }
   }
 }
