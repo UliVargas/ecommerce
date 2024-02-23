@@ -1,6 +1,6 @@
 {
   "name": "ecommerce",
-  "version": "1.4.2",
+  "version": "1.4.4",
   "description": "Esta es la api para un ecommerce",
   "main": "index.js",
   "scripts": {
@@ -12,7 +12,7 @@
     "prepare": "husky",
     "lint": "eslint . --ext .ts",
     "lint:fix": "eslint . --ext .ts --fix",
-    "release": "standard-version && git push",
+    "release": "standard-version",
     "commit": "cz"
   },
   "author": "Ulises Vargas",
