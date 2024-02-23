@@ -1,6 +1,6 @@
 {
   "name": "ecommerce",
-  "version": "1.4.0",
+  "version": "1.4.1",
   "description": "Esta es la api para un ecommerce",
   "main": "index.js",
   "scripts": {
