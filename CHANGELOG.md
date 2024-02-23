@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.4.0](https://github.com/UliVargas/ecommerce/compare/v1.3.0...v1.4.0) (2024-02-23)
+
+
+### Features
+
+* cabmios de prueba ([b199d1f](https://github.com/UliVargas/ecommerce/commit/b199d1ff79470c90a56518a8df00ef48d7e18b8e))
+* cambios ([0639c77](https://github.com/UliVargas/ecommerce/commit/0639c7702938dd6a63b565d4545f0de1bf698c07))
+
 ## [1.3.0](https://github.com/UliVargas/ecommerce/compare/v1.2.0...v1.3.0) (2024-02-21)
 
 
